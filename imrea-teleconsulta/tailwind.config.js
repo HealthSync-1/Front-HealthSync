@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        imrea: { green: '#006b54', green2: '#03896c' },
+        'imrea-green': '#006b54',
+        'imrea-green2': '#03896c',
       },
     },
   },

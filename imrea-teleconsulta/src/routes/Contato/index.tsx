@@ -27,19 +27,19 @@ export default function Contato() {
             
                 <div>
                     <label className="block mb-1 font-medium">Nome</label>
-                    <input {...register("nome")} className="w-full border rounded px-3 py-2" />
+                    <input {...register("nome")} className="w-full border border-gray-300 rounded px-3 py-2 focus:border-imrea-green focus:outline-none focus:ring-2 focus:ring-imrea-green/20" />
                     {errors.nome && <p className="text-red-600 text-sm mt-1">{errors.nome.message}</p>}
                 </div>
 
                  <div>
-                    <label className="block mb-1 font-medium">Email</label>
-                    <input {...register("email")} type="email" className="w-full border rounded px-3 py-2" />
+                    <label className="block mb-1 font-medium">E-mail</label>
+                    <input {...register("email")} type="email" className="w-full border border-gray-300 rounded px-3 py-2 focus:border-imrea-green focus:outline-none focus:ring-2 focus:ring-imrea-green/20" />
                     {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>}
                 </div>
 
                 <div>
                     <label className="block mb-1 font-medium">Mensagem</label>
-                    <textarea {...register("mensagem")} className="w-full border rounded px-3 py-2 h-32" />
+                    <textarea {...register("mensagem")} className="w-full border border-gray-300 rounded px-3 py-2 focus:border-imrea-green focus:outline-none focus:ring-2 focus:ring-imrea-green/20" />
                     {errors.mensagem && <p className="text-red-600 text-sm mt-1">{errors.mensagem.message}</p>}
                 </div>
 

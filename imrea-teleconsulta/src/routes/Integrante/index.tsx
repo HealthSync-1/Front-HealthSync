@@ -16,11 +16,11 @@ export default function Integrante() {
                         />
                         <div>
                             <h2 className="font-semibold text-imrea-green">{p.nome}</h2>
-                            <p>RM: {p.rm} | Turma: {p.turma}</p>
+                            <p className="text-gray-600">RM: {p.rm} | Turma: {p.turma}</p> {/* ← Adicione text-gray-600 */}
                             <div className="mt-2">
-                                <a className="text-imrea-green2 underline mr-3" href={p.github} target="_blank">GitHub</a>
-                                <a className="text-imrea-green2 underline mr-3" href={p.linkedin} target="_blank">LinkedIn</a>
-                                <Link className="text-imrea-green2 underline" to={`/integrantes/${p.rm}`}>Detalhes</Link>
+                                <a className="link-verde underline mr-3 hover:text-imrea-green transition" href={p.github} target="_blank">GitHub</a>
+                                <a className="link-verde underline mr-3 hover:text-imrea-green transition" href={p.linkedin} target="_blank">LinkedIn</a>
+                                <Link className="link-verde underline hover:text-imrea-green transition" to={`/integrantes/${p.rm}`}>Detalhes</Link>
                             </div>
                         </div>
                     </div>
