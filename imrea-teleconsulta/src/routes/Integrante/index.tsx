@@ -1,5 +1,4 @@
 import { INTEGRANTES } from "../../data/integrantes";
-import { Link } from "react-router-dom";
 
 export default function Integrante() {
     return (
@@ -16,11 +15,10 @@ export default function Integrante() {
                         />
                         <div>
                             <h2 className="font-semibold text-imrea-green">{p.nome}</h2>
-                            <p className="text-gray-600">RM: {p.rm} | Turma: {p.turma}</p> {/* ← Adicione text-gray-600 */}
+                            <p className="text-gray-600">RM: {p.rm} | Turma: {p.turma}</p>
                             <div className="mt-2">
                                 <a className="link-verde underline mr-3 hover:text-imrea-green transition" href={p.github} target="_blank">GitHub</a>
                                 <a className="link-verde underline mr-3 hover:text-imrea-green transition" href={p.linkedin} target="_blank">LinkedIn</a>
-                                <Link className="link-verde underline hover:text-imrea-green transition" to={`/integrantes/${p.rm}`}>Detalhes</Link>
                             </div>
                         </div>
                     </div>
