@@ -20,7 +20,7 @@ export default function Home() {
           </div>
 
           <img
-            src="/img/Ilustracao-TLC.jpg"
+            src="src/assets/img/healthsync.png"
             alt="Ilustração Teleconsulta"
             className="w-60 lg:w-72 rounded shadow"
           />
@@ -40,7 +40,7 @@ export default function Home() {
               content: (
                 <>
                   Baixe na{" "}
-                  <a className="text-imrea-green2 underline" href="https://play.google.com" target="_blank">
+                  <a className="text-imrea-green2 underline" href="https://play.google.com/store/apps/details?id=com.netihc.portaldopaciente" target="_blank">
                     Google Play
                   </a>{" "}
                   ou na{" "}
