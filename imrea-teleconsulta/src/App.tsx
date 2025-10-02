@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/header";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/footer";
 import Home from "./routes/Home";
 import FAQ from "./routes/FAQ";
 import Contato from "./routes/Contato";
