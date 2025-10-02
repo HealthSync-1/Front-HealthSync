@@ -128,7 +128,7 @@ npm run preview
 │  └─ tsconfig.node.json
 │  └─ vite.config.ts
 │  └─ README.md 
-  
+```
 ---
 
 ## Rotas e Páginas
