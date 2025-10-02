@@ -86,51 +86,53 @@ npm run preview
 ## Estrutura de Pastas
 ```
 .
-├─ index.html
-├─ public/
-│  └─ img/
-│     ├─ Ilustracao-TLC.jpg
-│     ├─ Maicon.jpg
-│     ├─ Richard.jpg
-│     └─ Pedro.png
-├─ src/
-│  ├─ App.tsx
-│  ├─ main.tsx
-│  ├─ vite-env.d.ts
-│  ├─ styles/
-│  │  └─ index.css
-│  ├─ components/
-│  │  ├─ Header.tsx
-│  │  ├─ Hero.tsx
-│  │  ├─ Steps.tsx
-│  │  └─ Footer.tsx
-│  ├─ routes/
-│  │  ├─ Home/
-│  │  │  └─ index.tsx
-│  │  ├─ FAQ/
-│  │  │  └─ index.tsx
-│  │  ├─ Contato/
-│  │  │  └─ index.tsx
-│  │  ├─ Sobre/
-│  │  │  └─ index.tsx
-│  │  ├─ Integrante/
-│  │  │  └─ index.tsx
-│  │  └─ IntegranteDetalhe/
-│  │     └─ index.tsx
-│  └─ data/
-│     └─ integrantes.ts
-├─ tailwind.config.js
-├─ postcss.config.js
-├─ tsconfig.json
-└─ package.json
-
-```
-
+├─ imrea-teleconsulta
+│  └─ node_modules
+│  └─ src/
+│     └─ assets/
+│        └─ img/
+│           ├─ healthsync.png
+│           ├─ laura.jpeg
+│           ├─ maicon.png
+│           └─ richard.jpeg
+│     └─ components/
+│        ├─ Header.tsx
+│        ├─ Footer.tsx
+│        └─ Steps.tsx
+│     └─ data/
+│        ├─integrantes.ts
+│     └─ routes/
+│        ├─ Home/
+│           └─ index.tsx
+│        ├─ FAQ/
+│           └─ index.tsx
+│        ├─ Contato/
+│           └─ index.tsx
+│        ├─ Sobre/
+│           └─ index.tsx
+│        ├─ Integrante/
+│           └─ index.ts
+│     └─styles/
+│       └─ index.css
+│     └─ App.tsx
+│     └─ main.tsx
+│  └─ .gitignore
+│  └─slint.config.js
+│  └─index.html
+│  └─package-lock.json
+│  └─package.json
+│  └─READEME.md
+│  └─tailwind.config.js
+│  └─ tsconfig.app.json
+│  └─ tsconfig.json
+│  └─ tsconfig.node.json
+│  └─ vite.config.ts
+│  └─ README.md 
+  
 ---
 
 ## Rotas e Páginas
 - `/` → **Home**  
-  - Hero com mensagem principal
   - **Passo a passo da teleconsulta do IMREA** (instalar app, conexão, áudio/vídeo, documentos, antecedência, suporte)
 - `/faq` → **FAQ**
 - `/contato` → **Contato** (RHF + Zod)
@@ -195,8 +197,8 @@ npm run preview
   - **≥ 5 commits por integrante**
   - **≥ 15 commits no total**
 - **Entrega:** enviar **.zip** do repositório **sem `node_modules`** e **com histórico de commits** (apenas branch `main`).
-- **README.md** completo (este documento).
-- **Links:** repositório do GitHub e vídeo do YouTube (≤ 3 min) no final do arquivo.
+- **README.md**
+- **Links:** repositório do GitHub e vídeo do YouTube
 
 ---
 
@@ -207,20 +209,10 @@ npm run preview
 - [x] **Hooks**: `useState`, `useEffect`, `useNavigate`, `useParams`
 - [x] **React Hook Form + Zod** (Contato)
 - [x] **TailwindCSS apenas**
-- [x] **Páginas obrigatórias**: Home, FAQ, Contato, **Sobre**, Integrantes, **Detalhe**
+- [x] **Páginas obrigatórias**: Home, FAQ, Contato, **Sobre**, Integrantes
 - [x] **Git/GitHub/GitFlow** com commits mínimos
 - [x] **README.md** completo
 - [x] **Entrega .zip** com histórico
-
-## Evidências (prints)
-Inclua imagens na pasta `docs/prints/` e referencie:
-
-- Home – ![Home](docs/prints/home.png)
-- FAQ – ![FAQ](docs/prints/faq.png)
-- Contato (validação) – ![Contato](docs/prints/contato.png)
-- Integrantes – ![Integrantes](docs/prints/integrantes.png)
-- Detalhe (rota dinâmica) – ![Detalhe](docs/prints/detalhe.png)
-- Sobre – ![Sobre](docs/prints/sobre.png)
 
 ---
 
@@ -253,12 +245,9 @@ Inclua imagens na pasta `docs/prints/` e referencie:
 
 ## Links
 - **Repositório GitHub:** https://github.com/HealthSync-1<org>/<repo>  
-- **Vídeo (YouTube, ≤ 3 min):** https://youtube.com/<id>
-
-> Substitua `<org>`, `<repo>` e `<id>` pelos dados reais antes da entrega.
+- **Vídeo (YouTube):** https://youtube.com/<id>
 
 ---
 
 ## Licença
 Projeto acadêmico para a disciplina de **Front-end Design Engineering** (Sprint 03).  
-Adapte a licença (MIT/ISC/etc.) conforme necessidade.
