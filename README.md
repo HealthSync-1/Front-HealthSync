@@ -245,7 +245,7 @@ npm run preview
 
 ## Links
 - **Repositório GitHub:** https://github.com/HealthSync-1<org>/<repo>  
-- **Vídeo (YouTube):** https://youtube.com/<id>
+- **Vídeo (YouTube):** https://youtu.be/EyIV1OeVQzQ/<id>
 
 ---
 
