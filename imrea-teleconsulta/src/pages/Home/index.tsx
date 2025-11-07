@@ -2,9 +2,9 @@ export default function Home() {
   return (
     <>
       <section className="bg-gradient-to-tr from-gray-100 to-emerald-50 border-b">
-        <div className="container-max py-10 flex flex-col-reverse lg:flex-row items-center gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col-reverse lg:flex-row items-center gap-8">
           <div className="max-w-xl">
-            <h1 className="text-3xl lg:text-4xl font-semibold text-imrea-green mb-3">
+            <h1 className="text-3xl lg:text-4xl font-semibold text-[#006b54] mb-3">
               Bem-vindo ao IMREA
             </h1>
             <p className="text-lg">
@@ -13,7 +13,7 @@ export default function Home() {
             </p>
             <a
               href="/faq"
-              className="btn-cta mt-5"
+              className="inline-block bg-[#006b54] hover:bg-[#03896c] text-white font-medium py-3 px-6 rounded-md transition-colors duration-200 mt-5 focus:outline-none focus:ring-2 focus:ring-[#006b54] focus:ring-offset-2"
             >
               Dúvidas? Acesse o FAQ
             </a>
@@ -27,8 +27,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container-max py-10">
-        <h2 className="text-imrea-green text-2xl mb-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <h2 className="text-[#006b54] text-2xl mb-6">
           Como se preparar para a teleconsulta
         </h2>
 
@@ -40,11 +40,11 @@ export default function Home() {
               content: (
                 <>
                   Baixe na{" "}
-                  <a className="text-imrea-green2 underline" href="https://play.google.com/store/apps/details?id=com.netihc.portaldopaciente" target="_blank">
+                  <a className="text-[#006b54] underline hover:text-[#03896c]" href="https://play.google.com/store/apps/details?id=com.netihc.portaldopaciente" target="_blank">
                     Google Play
                   </a>{" "}
                   ou na{" "}
-                  <a className="text-imrea-green2 underline" href="https://apps.apple.com/br/app/portal-do-paciente-hc/id1572694502" target="_blank">
+                  <a className="text-[#006b54] underline hover:text-[#03896c]" href="https://apps.apple.com/br/app/portal-do-paciente-hc/id1572694502" target="_blank">
                     App Store
                   </a>{" "}
                   e faça seu login.
@@ -77,11 +77,11 @@ export default function Home() {
               content: "Contate nosso suporte pelo telefone ou WhatsApp.",
             },
           ].map((s, i) => (
-            <section key={i} className="card border-l-4 border-imrea-green2 flex gap-4">
+            <section key={i} className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-[#006b54] flex gap-4 hover:shadow-md transition-shadow duration-200">
               <span className="text-3xl" aria-hidden>{s.icon}</span>
               <div>
-                <h3 className="text-imrea-green font-semibold mb-1">{s.title}</h3>
-                <p className="leading-relaxed">{s.content}</p>
+                <h3 className="text-[#006b54] font-semibold mb-1">{s.title}</h3>
+                <p className="leading-relaxed text-gray-700">{s.content}</p>
               </div>
             </section>
           ))}
