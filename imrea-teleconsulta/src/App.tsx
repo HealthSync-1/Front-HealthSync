@@ -1,11 +1,11 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import Header from "./components/Header/header";
-import Footer from "./components/Footer/footer";
-import Home from "./routes/Home";
-import FAQ from "./routes/FAQ";
-import Contato from "./routes/Contato";
-import Sobre from "./routes/Sobre";
-import Integrantes from "./routes/Integrante";
+import Header from "./components/Header/Header.tsx";
+import Footer from "./components/Footer/Footer.tsx";
+import Home from "./pages/Home";
+import FAQ from "./pages/FAQ";
+import Contato from "./pages/Contato";
+import Sobre from "./pages/Sobre";
+import Integrantes from "./pages/Integrante";
 
 export default function App() {
   return (
