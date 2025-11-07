@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "../components/Header/Header.tsx";
 import Footer from "../components/Footer/Footer.tsx";
 import Home from "../pages/Home/index.tsx";
@@ -6,6 +6,8 @@ import FAQ from "../pages/FAQ/index.tsx";
 import Contato from "../pages/Contato/index.tsx";
 import Sobre from "../pages/Sobre/index.tsx";
 import Integrantes from "../pages/Integrante/index.tsx";
+import IntegranteDetails from "./IntegrantesDetalhes/index.tsx";
+import Error from "./Error/index.tsx";
 
 export default function AppRoutes() {
   return (
@@ -18,7 +20,8 @@ export default function AppRoutes() {
           <Route path="/contato" element={<Contato />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/integrantes" element={<Integrantes />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/integrantes/:rm" element={<IntegranteDetails />} /> 
+          <Route path="*" element={<Error/>} />
         </Routes>
       </main>
       <Footer />

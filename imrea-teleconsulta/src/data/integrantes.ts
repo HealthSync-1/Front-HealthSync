@@ -1,3 +1,4 @@
+
 import MaiconImg from '../assets/img/Maicon.png';
 import RichardImg from '../assets/img/Richard.jpeg';
 import LauraImg from '../assets/img/laura.jpeg';
@@ -6,7 +7,7 @@ export type Integrante = {
   rm: string;
   nome: string;
   turma: string;
-  img: string;
+  img: string; 
   github: string;
   linkedin: string;
 };

@@ -42,7 +42,7 @@ export default function IntegranteDetails() {
                                     href={integrante.github} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="bg-[#006b54] hover:bg-gray-900 text-white px-4 py-2 rounded-md transition-colors duration-200"
+                                    className="bg-[#006b54] hover:bg-[#03896c] text-white px-4 py-2 rounded-md transition-colors duration-200"
                                 >
                                     GitHub
                                 </a>
@@ -50,7 +50,7 @@ export default function IntegranteDetails() {
                                     href={integrante.linkedin} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="bg-[#006b54] hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors duration-200"
+                                    className="bg-[#006b54] hover:bg-[#03896c] text-white px-4 py-2 rounded-md transition-colors duration-200"
                                 >
                                     LinkedIn
                                 </a>
