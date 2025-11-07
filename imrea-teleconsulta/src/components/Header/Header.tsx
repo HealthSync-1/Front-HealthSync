@@ -12,14 +12,14 @@ export default function Header(){
     }, []);
 
     const active = ({isActive}: { isActive: boolean}) =>
-        `px-3 py-2 rounded ${isActive ? "bg-white text-imrea-green font-medium" : "text-white hover:bg-white/10"}`;
+        `px-3 py-2 rounded ${isActive ? "bg-white text-[#006b54] font-medium" : "text-white hover:bg-white/10"}`;
     
     return(
-        <header className="bg-gradient-to-r from-[var(--color-imrea-green)] to-[var(--color-imrea-green2)]  sticky top-0 z-50 shadow-md">
-            <nav className="container-max h-16 flex items-center justify-between">
+        <header className="bg-gradient-to-r from-[#006b54] to-[#008768] sticky top-0 z-50 shadow-md">
+            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
                 <button
                 onClick={() => navigate("/")}
-                className="text-2xl font-bold tracking-wide text-white" // ← ADICIONE text-white AQUI
+                className="text-2xl font-bold tracking-wide text-white"
                 aria-label="Ir para a Home"
                 >
                     IMREA
@@ -27,7 +27,7 @@ export default function Header(){
                 
                 <button
                 onClick={() => setOpen((v) => !v)}
-                className="sm:hidden text-3xl leading-none"
+                className="sm:hidden text-3xl leading-none text-white"
                 aria-label="Abrir/Fechar menu"
                 >
                     ☰
@@ -42,13 +42,13 @@ export default function Header(){
             </nav>
             
             {open && (
-                <div className="sm:hidden bg-imrea-green/95">
-                     <ul className="container-max py-2 space-y-1">
-                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 hover:bg-white/10 rounded" to="/">Home</Link></li>
-                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 hover:bg-white/10 rounded" to="/integrantes">Integrantes</Link></li>
-                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 hover:bg-white/10 rounded" to="/faq">FAQ</Link></li>
-                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 hover:bg-white/10 rounded" to="/contato">Contato</Link></li>
-                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 hover:bg-white/10 rounded" to="/sobre">Sobre</Link></li>
+                <div className="sm:hidden bg-[#006b54]/95">
+                     <ul className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 space-y-1">
+                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 text-white hover:bg-white/10 rounded" to="/">Home</Link></li>
+                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 text-white hover:bg-white/10 rounded" to="/integrantes">Integrantes</Link></li>
+                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 text-white hover:bg-white/10 rounded" to="/faq">FAQ</Link></li>
+                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 text-white hover:bg-white/10 rounded" to="/contato">Contato</Link></li>
+                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 text-white hover:bg-white/10 rounded" to="/sobre">Sobre</Link></li>
                      </ul>
                 </div>
             )}
