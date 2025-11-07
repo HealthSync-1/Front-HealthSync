@@ -1,4 +1,4 @@
-import {Link, NavLink, useNavigate} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Header(){
@@ -33,7 +33,7 @@ export default function Header(){
                     ☰
                 </button>
                 <ul className="hidden sm:flex gap-2 items-center">
-                    <li><NavLink to="/" className={active}>Home</NavLink></li>
+                    <li><NavLink to="/" className={active} end>Home</NavLink></li>
                     <li><NavLink to="/integrantes" className={active}>Integrantes</NavLink></li>
                     <li><NavLink to="/faq" className={active}>FAQ</NavLink></li>
                     <li><NavLink to="/contato" className={active}>Contato</NavLink></li>
@@ -44,11 +44,11 @@ export default function Header(){
             {open && (
                 <div className="sm:hidden bg-[#006b54]/95">
                      <ul className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 space-y-1">
-                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 text-white hover:bg-white/10 rounded" to="/">Home</Link></li>
-                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 text-white hover:bg-white/10 rounded" to="/integrantes">Integrantes</Link></li>
-                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 text-white hover:bg-white/10 rounded" to="/faq">FAQ</Link></li>
-                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 text-white hover:bg-white/10 rounded" to="/contato">Contato</Link></li>
-                        <li><Link onClick={() => setOpen(false)} className="block px-3 py-2 text-white hover:bg-white/10 rounded" to="/sobre">Sobre</Link></li>
+                        <li><NavLink to="/" onClick={() => setOpen(false)} className={({isActive}) => `block px-3 py-2 rounded ${isActive ? "bg-white/20 font-medium" : "text-white hover:bg-white/10"}`}>Home</NavLink></li>
+                        <li><NavLink to="/integrantes" onClick={() => setOpen(false)} className={({isActive}) => `block px-3 py-2 rounded ${isActive ? "bg-white/20 font-medium" : "text-white hover:bg-white/10"}`}>Integrantes</NavLink></li>
+                        <li><NavLink to="/faq" onClick={() => setOpen(false)} className={({isActive}) => `block px-3 py-2 rounded ${isActive ? "bg-white/20 font-medium" : "text-white hover:bg-white/10"}`}>FAQ</NavLink></li>
+                        <li><NavLink to="/contato" onClick={() => setOpen(false)} className={({isActive}) => `block px-3 py-2 rounded ${isActive ? "bg-white/20 font-medium" : "text-white hover:bg-white/10"}`}>Contato</NavLink></li>
+                        <li><NavLink to="/sobre" onClick={() => setOpen(false)} className={({isActive}) => `block px-3 py-2 rounded ${isActive ? "bg-white/20 font-medium" : "text-white hover:bg-white/10"}`}>Sobre</NavLink></li>
                      </ul>
                 </div>
             )}

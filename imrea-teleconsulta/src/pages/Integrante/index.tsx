@@ -1,4 +1,5 @@
 import { INTEGRANTES } from "../../data/integrantes";
+import { Link } from "react-router-dom";
 
 export default function Integrante() {
     return (
@@ -13,21 +14,28 @@ export default function Integrante() {
                             alt={`Foto de ${p.nome}`}
                             className="w-20 h-20 rounded-full object-cover border-4 border-[#006b54]"
                         />
-                        <div>
-                            <h2 className="font-semibold text-[#006b54]">{p.nome}</h2>
-                            <p className="text-gray-600">RM: {p.rm} | Turma: {p.turma}</p>
+                        <div className="flex-1">
+                            <Link 
+                                to={`/integrantes/${p.rm}`}
+                                className="font-semibold text-[#006b54] hover:underline block mb-1"
+                            >
+                                {p.nome}
+                            </Link>
+                            <p className="text-gray-600 text-sm">RM: {p.rm} | Turma: {p.turma}</p>
                             <div className="mt-2">
                                 <a 
-                                    className="text-[#006b54] underline mr-3 hover:text-[#005a44] transition-colors duration-200" 
+                                    className="text-[#006b54] underline mr-3 hover:text-[#005a44] transition-colors duration-200 text-sm" 
                                     href={p.github} 
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     GitHub
                                 </a>
                                 <a 
-                                    className="text-[#006b54] underline mr-3 hover:text-[#005a44] transition-colors duration-200" 
+                                    className="text-[#006b54] underline mr-3 hover:text-[#005a44] transition-colors duration-200 text-sm" 
                                     href={p.linkedin} 
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     LinkedIn
                                 </a>

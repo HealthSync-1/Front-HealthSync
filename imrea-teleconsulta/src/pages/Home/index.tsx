@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Home() {
   return (
     <>
@@ -11,12 +13,12 @@ export default function Home() {
               Seu acesso à medicina física e reabilitação de excelência. Veja como se preparar
               para sua <strong>teleconsulta</strong> de maneira prática e segura.
             </p>
-            <a
-              href="/faq"
+            <Link
+              to="/faq"
               className="inline-block bg-[#006b54] hover:bg-[#03896c] text-white font-medium py-3 px-6 rounded-md transition-colors duration-200 mt-5 focus:outline-none focus:ring-2 focus:ring-[#006b54] focus:ring-offset-2"
             >
               Dúvidas? Acesse o FAQ
-            </a>
+            </Link>
           </div>
 
           <img
