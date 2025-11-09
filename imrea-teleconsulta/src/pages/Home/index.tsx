@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from '../../assets/img/logo.png';
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
           </div>
 
           <img
-            src="src/assets/img/logo.png"
+            src={logo}
             alt="Ilustração Teleconsulta"
             className="w-60 lg:w-72 rounded shadow"
           />
