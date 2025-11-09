@@ -22,7 +22,7 @@ export default function Home() {
           </div>
 
           <img
-            src="src/assets/img/healthsync.png"
+            src="src/assets/img/logo.png"
             alt="Ilustração Teleconsulta"
             className="w-60 lg:w-72 rounded shadow"
           />
