@@ -48,8 +48,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O deploy da aplicação está hospedado no Vercel e pode ser acessado através do link abaixo:
 
-➡️ **[Link para o seu deploy no Vercel]** (Substitua este texto pelo seu link)
-> **Observação:** Para cumprir as regras, **não** utilizamos Bootstrap, Axios, carrosséis prontos, CDNs externas etc.
+➡️ **[[HealthSync](https://front-health-sync.vercel.app)]**
 
 ---
 
@@ -105,7 +104,7 @@ npm run preview
 │     └─ components/
 │        ├─ Header.tsx
 │        ├─ Footer.tsx
-│        ├─ UserList.tsx
+│        ├─ GerenciadorPacientes.tsx
 │        └─ Steps.tsx
 │     └─ data/
 │        ├─integrantes.ts
