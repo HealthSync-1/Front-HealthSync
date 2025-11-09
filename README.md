@@ -1,4 +1,4 @@
-# IMREA – Teleconsulta (Frontend · Sprint 03)
+# IMREA – Teleconsulta (Frontend · Sprint 04)
 
 > SPA (Single Page Application) em **React + Vite + TypeScript**, estilizada **exclusivamente com TailwindCSS**, com entradas validadas via **React Hook Form + Zod**.  
 > Reestruturação das páginas da Sprint 02 para uma arquitetura **modular**, **responsiva** e **escalável**, conforme regras da Sprint 03.
