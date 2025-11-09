@@ -137,3 +137,47 @@ function GerenciadorPacientes() {
       setLoading(false);
     }
   };
+
+  // --- 4. HANDLERS DO FORMULÁRIO E CICLO DE VIDA ---
+
+  useEffect(() => {
+    fetchPacientes();
+  }, []); 
+ 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+ 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+ 
+    if (!formData.nome || !formData.cpf) {
+      setError('Nome e CPF são obrigatórios.');
+      return;
+    }
+ 
+    if (editingId !== null) {
+      handleUpdate(editingId, formData);
+    } else {
+      handleCreate(formData);
+    }
+  };
+ 
+  const startEdit = (paciente: Paciente) => {
+    setEditingId(paciente.id);
+    setFormData({
+      nome: paciente.nome,
+      cpf: paciente.cpf,
+      dataNascimento: paciente.dataNascimento,
+    });
+  };
+ 
+  const resetForm = () => {
+    setFormData({ nome: '', cpf: '', dataNascimento: '' });
+    setEditingId(null);
+    setError(null);
+  };
