@@ -1,48 +1,30 @@
 import React, { useState, useEffect } from 'react';
-// --- 1. DEFINIÇÃO DA TIPAGEM ---
-
-// Interface para o objeto Paciente (como vem da API)
 interface Paciente {
-  id: number; // Assumindo que o ID é um número
+  id: number; 
   nome: string;
   cpf: string;
   dataNascimento: string;
-  // Adicione outros campos se sua API os tiver
 }
 
-// Tipo para os dados do formulário (sem o ID, pois é gerado no backend)
 type PacienteDTO = Omit<Paciente, 'id'>;
 
-// URL base da sua API
 const API_URL = 'https://healthsync-apirestful.onrender.com/pacientes';
 
-// --- 2. COMPONENTE REACT ---
-
 function GerenciadorPacientes() {
-  // Estado para armazenar a lista de pacientes
+
   const [pacientes, setPacientes] = useState<Paciente[]>([]);
 
-  // Estado para controlar os inputs do formulário
   const [formData, setFormData] = useState<PacienteDTO>({
     nome: '',
     cpf: '',
     dataNascimento: '',
   });
 
-  // Estado para rastrear qual paciente está sendo editado (null = modo de criação)
   const [editingId, setEditingId] = useState<number | null>(null);
 
-  // Estados para feedback da UI
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // --- 3. FUNÇÕES CRUD (CRITÉRIOS i, ii, iii) ---
-
-  /**
-   * (GET) Busca todos os pacientes da API
-   * (i) Consumo de API (GET)
-   * (iii) Tratamento de erros
-   */
   const fetchPacientes = async () => {
     setLoading(true);
     setError(null);
@@ -54,7 +36,7 @@ function GerenciadorPacientes() {
         );
       }
       const data: Paciente[] = await response.json();
-      setPacientes(data); // (ii) Manipulação correta dos dados
+      setPacientes(data);
     } catch (err) {
       setError((err as Error).message);
     } finally {
@@ -62,10 +44,6 @@ function GerenciadorPacientes() {
     }
   };
 
-  /**
-   * (POST) Cria um novo paciente
-   * (i) Consumo de API (POST)
-   */
   const handleCreate = async (pacienteData: PacienteDTO) => {
     setError(null);
     try {
@@ -84,7 +62,6 @@ function GerenciadorPacientes() {
       }
 
       const novoPaciente: Paciente = await response.json();
-      // (ii) Manipulação: Adiciona o novo paciente à lista (atualização imutável)
       setPacientes([...pacientes, novoPaciente]);
       resetForm();
     } catch (err) {
@@ -92,10 +69,6 @@ function GerenciadorPacientes() {
     }
   };
 
-  /**
-   * (PUT) Atualiza um paciente existente
-   * (i) Consumo de API (PUT)
-   */
   const handleUpdate = async (id: number, pacienteData: PacienteDTO) => {
     setError(null);
     try {
@@ -114,8 +87,6 @@ function GerenciadorPacientes() {
       }
 
       const pacienteAtualizado: Paciente = await response.json();
-
-      // (ii) Manipulação: Atualiza o paciente na lista (atualização imutável)
       setPacientes(
         pacientes.map((p) => (p.id === id ? pacienteAtualizado : p))
       );
@@ -125,12 +96,7 @@ function GerenciadorPacientes() {
     }
   };
 
-  /**
-   * (DELETE) Deleta um paciente
-   * (i) Consumo de API (DELETE)
-   */
   const handleDelete = async (id: number) => {
-    // Melhor prática: confirmar antes de deletar
     if (!window.confirm('Tem certeza que deseja excluir este paciente?')) {
       return;
     }
@@ -141,28 +107,23 @@ function GerenciadorPacientes() {
         method: 'DELETE',
       });
 
-      // (iii) Tratamento: DELETE geralmente retorna 204 (No Content)
       if (!response.ok) {
         throw new Error(
           `Erro HTTP ${response.status}: Falha ao deletar paciente.`
         );
       }
 
-      // (ii) Manipulação: Remove o paciente da lista (atualização imutável)
       setPacientes(pacientes.filter((p) => p.id !== id));
     } catch (err) {
       setError((err as Error).message);
     }
   };
 
-  // --- 4. HANDLERS DO FORMULÁRIO E CICLO DE VIDA ---
 
-  // Hook para buscar dados assim que o componente for montado
   useEffect(() => {
     fetchPacientes();
-  }, []); // O array vazio [] garante que isso rode apenas uma vez
+  }, []);
 
-  // Handler para controlar a mudança nos inputs do formulário
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -171,7 +132,6 @@ function GerenciadorPacientes() {
     }));
   };
 
-  // Handler para submeter o formulário (decide entre Criar ou Atualizar)
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -182,15 +142,12 @@ function GerenciadorPacientes() {
     }
 
     if (editingId !== null) {
-      // Se está editando, chama o PUT
       handleUpdate(editingId, formData);
     } else {
-      // Se não, chama o POST
       handleCreate(formData);
     }
   };
 
-  // Função para carregar os dados de um paciente no formulário para edição
   const startEdit = (paciente: Paciente) => {
     setEditingId(paciente.id);
     setFormData({
@@ -200,37 +157,42 @@ function GerenciadorPacientes() {
     });
   };
 
-  // Função para limpar o formulário e o estado de edição
   const resetForm = () => {
     setFormData({ nome: '', cpf: '', dataNascimento: '' });
     setEditingId(null);
     setError(null);
   };
 
-  // --- 5. RENDERIZAÇÃO (JSX) ---
-
   return (
-    <div style={styles.container}>
-      <h2>Gestão de Pacientes (HealthSync)</h2>
+    <div className="font-sans w-11/12 max-w-4xl my-8 mx-auto p-4 sm:p-6 border border-gray-200 rounded-lg shadow-lg bg-white">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-800 text-center sm:text-left">
+        Gestão de Pacientes
+      </h2>
 
-      {/* Seção do Formulário */}
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <h3>{editingId ? 'Editar Paciente' : 'Adicionar Novo Paciente'}</h3>
+      {}
+      <form
+        onSubmit={handleSubmit}
+        className="mb-8 p-4 border rounded-md bg-gray-50"
+      >
+        <h3 className="text-xl font-semibold mb-4 text-gray-700">
+          {editingId ? 'Editar Paciente' : 'Adicionar Novo Paciente'}
+        </h3>
         <input
           type="text"
           name="nome"
           placeholder="Nome"
           value={formData.nome}
           onChange={handleChange}
-          style={styles.input}
+          className="block w-full p-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#006b54]"
         />
         <input
-          type="cpf"
+          type="text"
           name="cpf"
-          placeholder="cpf"
+          placeholder="CPF (somente números)"
           value={formData.cpf}
           onChange={handleChange}
-          style={styles.input}
+          maxLength={11}
+          className="block w-full p-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#006b54]"
         />
         <input
           type="date"
@@ -238,17 +200,20 @@ function GerenciadorPacientes() {
           placeholder="Data de Nascimento"
           value={formData.dataNascimento}
           onChange={handleChange}
-          style={styles.input}
+          className="block w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#006b54]"
         />
-        <div style={styles.buttonGroup}>
-          <button type="submit" style={styles.buttonPrimary}>
-            {editingId ? 'Atualizar' : 'Salvar'}
+        <div className="flex gap-2">
+          <button
+            type="submit"
+            className="py-2 px-4 bg-[#006b54] text-white font-semibold rounded-md cursor-pointer hover:bg-[#005a44] transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+          >
+            {editingId ? 'Atualizar' : 'Salvar Paciente'}
           </button>
           {editingId && (
             <button
               type="button"
               onClick={resetForm}
-              style={styles.buttonSecondary}
+              className="py-2 px-4 bg-gray-500 text-white font-semibold rounded-md cursor-pointer hover:bg-gray-600 transition-colors"
             >
               Cancelar Edição
             </button>
@@ -256,129 +221,54 @@ function GerenciadorPacientes() {
         </div>
       </form>
 
-      {/* (iii) Feedback de Erro e Loading */}
-      {loading && <p>Carregando pacientes...</p>}
-      {error && <p style={styles.errorText}>Erro: {error}</p>}
+      {}
+      {loading && <p className="text-center text-gray-500 my-4">Carregando pacientes...</p>}
+      {error && (
+        <p className="text-red-600 font-bold my-4 p-3 bg-red-100 border border-red-300 rounded-md">
+          Erro: {error}
+        </p>
+      )}
 
-      {/* Seção da Lista de Pacientes */}
+      {}
       {!loading && !error && (
-        <table style={styles.table}>
-          <thead>
-            <tr>
-              <th style={styles.th}>Nome</th>
-              <th style={styles.th}>Email</th>
-              <th style={styles.th}>Telefone</th>
-              <th style={styles.th}>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {pacientes.map((paciente) => (
-              <tr key={paciente.id}>
-                <td style={styles.td}>{paciente.nome}</td>
-                <td style={styles.td}>{paciente.cpf}</td>
-                <td style={styles.td}>{paciente.dataNascimento}</td>
-                <td style={styles.td}>
-                  <button
-                    onClick={() => startEdit(paciente)}
-                    style={styles.buttonEdit}
-                  >
-                    Editar
-                  </button>
-                  <button
-                    onClick={() => handleDelete(paciente.id)}
-                    style={styles.buttonDelete}
-                  >
-                    Excluir
-                  </button>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="text-left p-3 border-b-2 border-gray-300 font-semibold text-gray-700">Nome</th>
+                <th className="text-left p-3 border-b-2 border-gray-300 font-semibold text-gray-700">CPF</th>
+                <th className="text-left p-3 border-b-2 border-gray-300 font-semibold text-gray-700">Data de Nascimento</th>
+                <th className="text-left p-3 border-b-2 border-gray-300 font-semibold text-gray-700">Ações</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {pacientes.map((paciente) => (
+                <tr key={paciente.id} className="hover:bg-gray-50 transition-colors">
+                  <td className="p-3 border-b border-gray-200">{paciente.nome}</td>
+                  <td className="p-3 border-b border-gray-200">{paciente.cpf}</td>
+                  <td className="p-3 border-b border-gray-200">{paciente.dataNascimento}</td>
+                  <td className="p-3 border-b border-gray-200 flex flex-wrap gap-2">
+                    <button
+                      onClick={() => startEdit(paciente)}
+                      className="py-1 px-3 bg-yellow-400 text-black rounded-md cursor-pointer hover:bg-yellow-500 transition-colors text-sm font-medium"
+                    >
+                      Editar
+                    </button>
+                    <button
+                      onClick={() => handleDelete(paciente.id)}
+                      className="py-1 px-3 bg-red-500 text-white rounded-md cursor-pointer hover:bg-red-600 transition-colors text-sm font-medium"
+                    >
+                      Excluir
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );
 }
-
-// --- 6. ESTILOS (Opcional, para melhor visualização) ---
-// (Estilos inline para não depender de arquivos CSS externos)
-const styles: { [key: string]: React.CSSProperties } = {
-  container: {
-    fontFamily: 'Arial, sans-serif',
-    width: '90%',
-    maxWidth: '800px',
-    margin: '2rem auto',
-    padding: '1rem',
-    border: '1px solid #ccc',
-    borderRadius: '8px',
-  },
-  form: {
-    marginBottom: '2rem',
-    padding: '1rem',
-    borderBottom: '1px solid #eee',
-  },
-  input: {
-    display: 'block',
-    width: '95%',
-    padding: '0.5rem',
-    marginBottom: '0.5rem',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
-  buttonGroup: {
-    display: 'flex',
-    gap: '0.5rem',
-  },
-  buttonPrimary: {
-    padding: '0.5rem 1rem',
-    backgroundColor: '#007bff',
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
-  buttonSecondary: {
-    padding: '0.5rem 1rem',
-    backgroundColor: '#6c757d',
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
-  errorText: {
-    color: 'red',
-    fontWeight: 'bold',
-  },
-  table: {
-    width: '100%',
-    borderCollapse: 'collapse',
-  },
-  th: {
-    textAlign: 'left',
-    padding: '0.5rem',
-    borderBottom: '2px solid #333',
-    backgroundColor: '#f4f4f4',
-  },
-  td: {
-    padding: '0.5rem',
-    borderBottom: '1px solid #ddd',
-  },
-  buttonEdit: {
-    marginRight: '0.5rem',
-    padding: '0.3rem 0.6rem',
-    backgroundColor: '#ffc107',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
-  buttonDelete: {
-    padding: '0.3rem 0.6rem',
-    backgroundColor: '#dc3545',
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
-};
 
 export default GerenciadorPacientes;
