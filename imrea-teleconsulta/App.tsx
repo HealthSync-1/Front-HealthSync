@@ -9,6 +9,9 @@ function App() {
       <div className="min-h-screen flex flex-col bg-gray-50">
         <Header />
         <main className="flex-grow">
+          {}
+
+          {/* Agora o AppRoutes controla qual componente é exibido */}
           <AppRoutes />
         </main>
         <Footer />
