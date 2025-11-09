@@ -50,6 +50,7 @@ export default function Header(){
                         <li><NavLink to="/faq" onClick={() => setOpen(false)} className={({isActive}) => `block px-3 py-2 rounded ${isActive ? "bg-white/20 font-medium" : "text-white hover:bg-white/10"}`}>FAQ</NavLink></li>
                         <li><NavLink to="/contato" onClick={() => setOpen(false)} className={({isActive}) => `block px-3 py-2 rounded ${isActive ? "bg-white/20 font-medium" : "text-white hover:bg-white/10"}`}>Contato</NavLink></li>
                         <li><NavLink to="/sobre" onClick={() => setOpen(false)} className={({isActive}) => `block px-3 py-2 rounded ${isActive ? "bg-white/20 font-medium" : "text-white hover:bg-white/10"}`}>Sobre</NavLink></li>
+                        <li><NavLink to="/pacientes" onClick={() => setOpen(false)} className={({isActive}) => `block px-3 py-2 rounded ${isActive ? "bg-white/20 font-medium" : "text-white hover:bg-white/10"}`}>Gerenciar Pacientes</NavLink></li>
                      </ul>
                 </div>
             )}
