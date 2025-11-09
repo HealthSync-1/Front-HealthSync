@@ -236,15 +236,6 @@ npm run preview
 
 ---
 
-## Troubleshooting
-- **Erro de import do CSS** (`./styles/index.css`): verifique o caminho e a existência do arquivo.  
-- **Tela branca**: abra DevTools (F12) → **Console**; cheque `index.html` (root e script), `main.tsx` (Router e import do CSS), `vite-env.d.ts`; confirme nomes e `export default` das páginas.  
-- **Tailwind** (v3 recomendado): `postcss.config.js` com `tailwindcss` + `autoprefixer`; `tailwind.config.js` com `content` apontando para `index.html` e `src/**/*.{ts,tsx}`.  
-- **Unknown at rule @tailwind** no VSCode: instale **Tailwind CSS IntelliSense** ou defina `"css.lint.unknownAtRules": "ignore"`.  
-- **Hook Form/Zod import**: garanta que `react-hook-form`, `zod` e `@hookform/resolvers` estão instalados.
-
----
-
 ## Integrantes
 | Nome             | RM     | Turma   | GitHub                                         | LinkedIn                                                                 |
 |------------------|--------|---------|------------------------------------------------|-------------------------------------------------------------------------|
