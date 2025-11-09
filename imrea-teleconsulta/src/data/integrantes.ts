@@ -1,6 +1,6 @@
 
-import MaiconImg from '../assets/img/Maicon.png';
-import RichardImg from '../assets/img/Richard.jpeg';
+import MaiconImg from '../assets/img/maicon.png';
+import RichardImg from '../assets/img/richard.jpeg';
 import LauraImg from '../assets/img/laura.jpeg';
 
 export type Integrante = {
