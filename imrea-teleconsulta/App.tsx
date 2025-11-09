@@ -2,6 +2,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import AppRoutes from './src/routes/AppRoutes';
 import Header from './src/components/Header/Header';
 import Footer from './src/components/Footer/Footer';
+import GerenciadorPacientes from './src/components/GerenciadorPacientes';
+
 
 function App() {
   return (
@@ -11,7 +13,8 @@ function App() {
         <main className="flex-grow">
           {}
 
-          {/* Agora o AppRoutes controla qual componente é exibido */}
+          {}
+          <GerenciadorPacientes />
           <AppRoutes />
         </main>
         <Footer />
