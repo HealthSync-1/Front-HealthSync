@@ -38,6 +38,7 @@ export default function Header(){
                     <li><NavLink to="/faq" className={active}>FAQ</NavLink></li>
                     <li><NavLink to="/contato" className={active}>Contato</NavLink></li>
                     <li><NavLink to="/sobre" className={active}>Sobre</NavLink></li>
+                    <li><NavLink to="/pacientes" className={active}>Gerenciar Pacientes</NavLink></li>
                 </ul>
             </nav>
             
