@@ -35,13 +35,20 @@ Páginas incluídas: **Home**, **FAQ**, **Contato**, **Sobre**, **Integrantes** 
 
 ---
 
-## Tecnologias
-- **React 18**, **Vite**, **TypeScript**
-- **React Router** (rotas estáticas e dinâmicas)
-- **TailwindCSS** (estilização exclusiva)
-- **React Hook Form** + **Zod** (validação de formulários)
-- PostCSS
+## 🚀 Tecnologias
 
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- **React** (utilizando Vite)
+- **TypeScript** (para tipos específicos e segurança)
+- **Tailwind CSS** (para estilização)
+- **React Router** (para gerenciamento de rotas internas)
+
+## ☁️ Deploy
+
+O deploy da aplicação está hospedado no Vercel e pode ser acessado através do link abaixo:
+
+➡️ **[Link para o seu deploy no Vercel]** (Substitua este texto pelo seu link)
 > **Observação:** Para cumprir as regras, **não** utilizamos Bootstrap, Axios, carrosséis prontos, CDNs externas etc.
 
 ---
@@ -98,26 +105,33 @@ npm run preview
 │     └─ components/
 │        ├─ Header.tsx
 │        ├─ Footer.tsx
+│        ├─ UserList.tsx
 │        └─ Steps.tsx
 │     └─ data/
 │        ├─integrantes.ts
-│     └─ routes/
-│        ├─ Home/
+│     └─ pages/
+│        ├─ Contato/
 │           └─ index.tsx
 │        ├─ FAQ/
 │           └─ index.tsx
-│        ├─ Contato/
+│        ├─ Home/
+│           └─ index.tsx
+│        ├─ Integrante/
 │           └─ index.tsx
 │        ├─ Sobre/
 │           └─ index.tsx
-│        ├─ Integrante/
-│           └─ index.ts
-│     └─styles/
-│       └─ index.css
+│     └─ routes/
+│        ├─ Error/
+│           └─ index.tsx
+│        ├─ IntegrantesDetalhes/
+│           └─ index.tsx
+│        ├─ AppRoutes.tsx
+│     └─types/
+│       └─ index.ts
 │     └─ App.tsx
 │     └─ main.tsx
 │  └─ .gitignore
-│  └─slint.config.js
+│  └─eslint.config.js
 │  └─index.html
 │  └─package-lock.json
 │  └─package.json
