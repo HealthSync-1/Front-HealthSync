@@ -8,6 +8,7 @@ import Sobre from "../pages/Sobre/index.tsx";
 import Integrantes from "../pages/Integrante/index.tsx";
 import IntegranteDetails from "./IntegrantesDetalhes/index.tsx";
 import Error from "./Error/index.tsx";
+import GerenciadorPacientes from "../components/GerenciadorPacientes.tsx"; // 1. Importe o componente
 
 export default function AppRoutes() {
   return (
@@ -21,6 +22,7 @@ export default function AppRoutes() {
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/integrantes" element={<Integrantes />} />
           <Route path="/integrantes/:rm" element={<IntegranteDetails />} /> 
+          <Route path="/pacientes" element={<GerenciadorPacientes />} /> {/* 2. Adicione a nova rota */}
           <Route path="*" element={<Error/>} />
         </Routes>
       </main>
