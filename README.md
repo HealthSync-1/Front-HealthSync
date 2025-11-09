@@ -48,8 +48,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O deploy da aplicação está hospedado no Vercel e pode ser acessado através do link abaixo:
 
-➡️ **[Link para o seu deploy no Vercel]** (Substitua este texto pelo seu link)
-> **Observação:** Para cumprir as regras, **não** utilizamos Bootstrap, Axios, carrosséis prontos, CDNs externas etc.
+➡️ **[[HealthSync](https://front-health-sync.vercel.app)]**
 
 ---
 
@@ -105,7 +104,7 @@ npm run preview
 │     └─ components/
 │        ├─ Header.tsx
 │        ├─ Footer.tsx
-│        ├─ UserList.tsx
+│        ├─ GerenciadorPacientes.tsx
 │        └─ Steps.tsx
 │     └─ data/
 │        ├─integrantes.ts
@@ -234,15 +233,6 @@ npm run preview
 - **Sem bibliotecas proibidas** (Bootstrap, Axios, carrosséis prontos, etc.).
 - Integrações externas via **CDN** foram **desativadas para a entrega** (ex.: Watson Assistant).  
   Após a avaliação, podem ser reativadas em branch separado e documentadas.
-
----
-
-## Troubleshooting
-- **Erro de import do CSS** (`./styles/index.css`): verifique o caminho e a existência do arquivo.  
-- **Tela branca**: abra DevTools (F12) → **Console**; cheque `index.html` (root e script), `main.tsx` (Router e import do CSS), `vite-env.d.ts`; confirme nomes e `export default` das páginas.  
-- **Tailwind** (v3 recomendado): `postcss.config.js` com `tailwindcss` + `autoprefixer`; `tailwind.config.js` com `content` apontando para `index.html` e `src/**/*.{ts,tsx}`.  
-- **Unknown at rule @tailwind** no VSCode: instale **Tailwind CSS IntelliSense** ou defina `"css.lint.unknownAtRules": "ignore"`.  
-- **Hook Form/Zod import**: garanta que `react-hook-form`, `zod` e `@hookform/resolvers` estão instalados.
 
 ---
 
